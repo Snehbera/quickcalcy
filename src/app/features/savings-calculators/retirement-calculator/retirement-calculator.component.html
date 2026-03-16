@@ -1,0 +1,59 @@
+<app-calculator-page 
+  title="Retirement Calculator" 
+  category="Savings" 
+  description="Plan your future by estimating your retirement corpus based on savings and returns.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <div class="grid grid-cols-2 gap-md">
+      <app-input-field label="Current Age" type="number" [(ngModel)]="currentAge" (ngModelChange)="calculate()"></app-input-field>
+      <app-input-field label="Retirement Age" type="number" [(ngModel)]="retirementAge" (ngModelChange)="calculate()"></app-input-field>
+    </div>
+
+    <app-input-field 
+      label="Current Savings" 
+      prefix="₹" 
+      [(ngModel)]="currentSavings"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Monthly Contribution" 
+      prefix="₹" 
+      [(ngModel)]="monthlyContribution"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Expected Return Rate" 
+      suffix="%" 
+      [(ngModel)]="returnRate"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Retirement Corpus" 
+      prefix="₹" 
+      [value]="totalCorpus" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Total Contributions" 
+      prefix="₹" 
+      [value]="totalContribution">
+    </app-result-card>
+
+    <app-result-card 
+      title="Interest Earned" 
+      prefix="₹" 
+      [value]="totalInterest">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

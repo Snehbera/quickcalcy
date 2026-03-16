@@ -1,0 +1,46 @@
+<nav class="navbar">
+  <div class="container navbar-container flex justify-between items-center">
+    
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-logo flex items-center gap-sm">
+      <span class="logo-icon">🧮</span>
+      <span class="logo-text">QuickCalcy</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="navbar-menu flex items-center gap-md">
+      <li><a routerLink="/" class="nav-link font-medium">Home</a></li>
+      <li><a routerLink="/" fragment="categories" class="nav-link font-medium">Calculators</a></li>
+      <li>
+        <button class="theme-toggle btn-icon" (click)="toggleTheme()" aria-label="Toggle Theme">
+          <span *ngIf="!isDarkMode">🌙</span>
+          <span *ngIf="isDarkMode">☀️</span>
+        </button>
+      </li>
+      <li><button class="btn btn-primary">Get Started</button></li>
+    </ul>
+
+    <!-- Mobile Toggle -->
+    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+      <span class="hamburger" [class.open]="isMenuOpen"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.open]="isMenuOpen">
+    <div class="container flex flex-col gap-sm">
+      <a routerLink="/" class="nav-link font-medium" (click)="toggleMenu()">Home</a>
+      <a routerLink="/" fragment="categories" class="nav-link font-medium" (click)="toggleMenu()">Calculators</a>
+      
+      <div class="flex justify-between items-center mt-2 pb-2" style="border-bottom: 1px solid var(--color-border);">
+        <span class="font-medium text-muted">Theme</span>
+        <button class="theme-toggle btn-icon" (click)="toggleTheme()" aria-label="Toggle Theme">
+          <span *ngIf="!isDarkMode">🌙</span>
+          <span *ngIf="isDarkMode">☀️</span>
+        </button>
+      </div>
+
+      <button class="btn btn-primary w-full mt-2" (click)="toggleMenu()">Get Started</button>
+    </div>
+  </div>
+</nav>

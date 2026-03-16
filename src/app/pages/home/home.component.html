@@ -1,0 +1,60 @@
+<!-- Hero Section -->
+<section class="hero-section text-center flex flex-col items-center justify-center">
+  <div class="container flex flex-col items-center gap-md">
+    <span class="hero-badge">Welcome to QuickCalcy ✨</span>
+    <h1 class="hero-title">Financial Clarity at Your <span class="text-primary">Fingertips</span></h1>
+    <p class="hero-subtitle text-lg text-muted">
+      Minimal, beautiful, and precise calculators for loans, investments, taxes, and savings.
+      Make smarter decisions faster.
+    </p>
+
+    <!-- Global Search -->
+    <div class="search-container w-full max-w-lg mt-4">
+      <div class="input-wrapper search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          class="input-control search-input flex-1" 
+          placeholder="Search calculators (e.g. EMI, SIP...)"
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="onSearchChange()"
+        />
+      </div>
+      
+      <!-- Search Dropdown -->
+      <div *ngIf="searchQuery && searchResults.length > 0" class="search-results card">
+        <a *ngFor="let calc of searchResults" [routerLink]="calc.route" class="search-result-item flex items-center gap-sm">
+          <span>{{ calc.icon }}</span>
+          <div>
+            <div class="font-medium">{{ calc.title }}</div>
+            <div class="text-xs text-muted">{{ calc.category }}</div>
+          </div>
+        </a>
+      </div>
+      
+      <div *ngIf="searchQuery && searchResults.length === 0" class="search-results card">
+        <div class="p-4 text-center text-muted">No calculators found for "{{ searchQuery }}"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories Section -->
+<section id="categories" class="categories-section p-y-xl">
+  <div class="container flex flex-col gap-2xl">
+    
+    <div *ngFor="let category of categoriesList" class="category-block">
+      <h2 class="category-title text-2xl font-bold mb-lg flex items-center gap-sm">
+        {{ category }} Calculators
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+        <app-calculator-card 
+          *ngFor="let calc of categoriesMap.get(category)" 
+          [calculator]="calc">
+        </app-calculator-card>
+      </div>
+    </div>
+
+  </div>
+</section>

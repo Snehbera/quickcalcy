@@ -1,0 +1,54 @@
+<app-calculator-page 
+  title="RD Calculator" 
+  category="Investment" 
+  description="Calculate the maturity value of your Recurring Deposits.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Monthly Investment" 
+      prefix="₹" 
+      [(ngModel)]="monthlyPayment"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Rate of Interest (p.a)" 
+      suffix="%" 
+      [(ngModel)]="interestRate"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Time Period (Years)" 
+      suffix="Yrs" 
+      [(ngModel)]="tenureYears"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Maturity Value" 
+      prefix="₹" 
+      [value]="maturityAmount" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Total Investment" 
+      prefix="₹" 
+      [value]="totalInvestment">
+    </app-result-card>
+
+    <app-result-card 
+      title="Interest Earned" 
+      prefix="₹" 
+      [value]="interestEarned">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

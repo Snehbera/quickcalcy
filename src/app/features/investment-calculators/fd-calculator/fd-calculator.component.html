@@ -1,0 +1,54 @@
+<app-calculator-page 
+  title="FD Calculator" 
+  category="Investment" 
+  description="Calculate the maturity amount and interest earned on your Fixed Deposit.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Total Investment" 
+      prefix="₹" 
+      [(ngModel)]="principal"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Rate of Interest (p.a)" 
+      suffix="%" 
+      [(ngModel)]="interestRate"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Time Period (Years)" 
+      suffix="Yrs" 
+      [(ngModel)]="tenureYears"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Maturity Value" 
+      prefix="₹" 
+      [value]="maturityAmount" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Invested Amount" 
+      prefix="₹" 
+      [value]="principal">
+    </app-result-card>
+
+    <app-result-card 
+      title="Total Interest" 
+      prefix="₹" 
+      [value]="interestEarned">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

@@ -1,0 +1,68 @@
+<app-calculator-page 
+  title="Home Loan Calculator" 
+  category="Loan" 
+  description="Calculate your home loan EMI and total interest payable.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Home Value" 
+      prefix="₹" 
+      [(ngModel)]="homeValue"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Down Payment" 
+      prefix="₹" 
+      [(ngModel)]="downPayment"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Interest Rate (p.a)" 
+      suffix="%" 
+      [(ngModel)]="interestRate"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Loan Tenure (Years)" 
+      suffix="Yrs" 
+      [(ngModel)]="tenureYears"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Monthly EMI" 
+      prefix="₹" 
+      [value]="emi" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Principal Amount" 
+      prefix="₹" 
+      [value]="loanAmount">
+    </app-result-card>
+
+    <app-result-card 
+      title="Total Interest" 
+      prefix="₹" 
+      [value]="totalInterest">
+    </app-result-card>
+
+    <app-result-card 
+      title="Total Payment" 
+      prefix="₹" 
+      [value]="totalPayment"
+      class="md:col-span-2">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

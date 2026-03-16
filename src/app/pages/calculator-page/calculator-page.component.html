@@ -1,0 +1,44 @@
+<div class="calculator-page-wrapper p-y-xl">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb">
+      <div class="breadcrumb-pill text-sm">
+        <a routerLink="/">Home</a>
+        <span class="breadcrumb-separator">❯</span>
+        <a routerLink="/" fragment="categories">{{ category }}</a>
+        <span class="breadcrumb-separator">❯</span>
+        <span class="breadcrumb-current">{{ title }}</span>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="calc-header text-center">
+      <h1 class="text-3xl md:text-4xl font-bold mb-sm text-primary">{{ title }}</h1>
+      <p class="text-lg text-muted max-w-lg mx-auto">{{ description }}</p>
+    </div>
+
+    <!-- Main Content Layout Area -->
+    <div class="calc-content-grid grid grid-cols-1 lg:grid-cols-12 gap-xl">
+      
+      <!-- Input Form Area -->
+      <div class="calc-form-area lg:col-span-5 card">
+        <h3 class="text-xl font-semibold mb-lg border-bottom pb-sm">Input Details</h3>
+        <ng-content select="[calc-inputs]"></ng-content>
+      </div>
+
+      <!-- Result Display Area -->
+      <div class="calc-result-area lg:col-span-7 flex flex-col gap-lg">
+        <div class="card bg-primary-lighten border-primary">
+          <h3 class="text-xl font-semibold mb-lg border-bottom pb-sm">Summary</h3>
+          <ng-content select="[calc-results]"></ng-content>
+        </div>
+        
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-lg border-bottom pb-sm">Visualization</h3>
+          <ng-content select="[calc-charts]"></ng-content>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix, .input-suffix {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  pointer-events: none;
+}
+
+.input-prefix {
+  left: 1rem;
+}
+
+.input-suffix {
+  right: 1rem;
+  font-weight: 500;
+}
+
+.input-control.has-prefix {
+  padding-left: 2.5rem;
+}
+
+.input-control.has-suffix {
+  padding-right: 3rem;
+}

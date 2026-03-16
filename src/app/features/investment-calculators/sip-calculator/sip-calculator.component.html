@@ -1,0 +1,54 @@
+<app-calculator-page 
+  title="SIP Calculator" 
+  category="Investment" 
+  description="Calculate the maturity value of your Systematic Investment Plan.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Monthly Investment" 
+      prefix="₹" 
+      [(ngModel)]="monthlyInvestment"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Expected Return Rate (p.a)" 
+      suffix="%" 
+      [(ngModel)]="returnRate"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Time Period (Years)" 
+      suffix="Yrs" 
+      [(ngModel)]="tenureYears"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Total Value" 
+      prefix="₹" 
+      [value]="totalValue" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Invested Amount" 
+      prefix="₹" 
+      [value]="totalInvestment">
+    </app-result-card>
+
+    <app-result-card 
+      title="Estimated Returns" 
+      prefix="₹" 
+      [value]="estimatedReturns">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

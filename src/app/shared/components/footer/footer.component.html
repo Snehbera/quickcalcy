@@ -1,0 +1,48 @@
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+      
+      <!-- Brand & Info -->
+      <div class="footer-brand flex flex-col gap-sm">
+        <a routerLink="/" class="navbar-logo flex items-center gap-sm" style="margin-bottom: var(--spacing-sm);">
+          <span class="logo-icon text-2xl">🧮</span>
+          <span class="logo-text text-xl">QuickCalcy</span>
+        </a>
+        <p class="text-sm text-muted">
+          Your one-stop destination for simple, clear, and beautiful calculators. Manage your loans, investments, taxes, and savings with ease.
+        </p>
+      </div>
+
+      <!-- Links Column 1 -->
+      <div class="footer-links">
+        <h4 class="footer-title">Popular</h4>
+        <ul class="flex flex-col gap-sm">
+          <li><a routerLink="/loan/emi" class="text-sm text-muted">EMI Calculator</a></li>
+          <li><a routerLink="/investment/sip" class="text-sm text-muted">SIP Calculator</a></li>
+          <li><a routerLink="/tax/income-tax" class="text-sm text-muted">Income Tax</a></li>
+          <li><a routerLink="/savings/retirement" class="text-sm text-muted">Retirement</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2 -->
+      <div class="footer-links">
+        <h4 class="footer-title">Categories</h4>
+        <ul class="flex flex-col gap-sm">
+          <li><a routerLink="/" fragment="categories" class="text-sm text-muted">Loans</a></li>
+          <li><a routerLink="/" fragment="categories" class="text-sm text-muted">Investments</a></li>
+          <li><a routerLink="/" fragment="categories" class="text-sm text-muted">Taxes</a></li>
+          <li><a routerLink="/" fragment="categories" class="text-sm text-muted">Savings & Utilities</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom flex justify-between items-center">
+      <p class="text-xs text-muted">&copy; {{ currentYear }} QuickCalcy. All rights reserved.</p>
+      <div class="flex gap-md">
+        <a href="#" aria-label="Privacy Policy" class="text-xs text-muted">Privacy</a>
+        <a href="#" aria-label="Terms of Service" class="text-xs text-muted">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>

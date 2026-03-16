@@ -1,0 +1,47 @@
+<app-calculator-page 
+  title="Discount Calculator" 
+  category="Utility" 
+  description="Find out exactly how much you save and the final price after applying a discount.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Original Price" 
+      prefix="₹" 
+      [(ngModel)]="originalPrice"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Discount Percentage" 
+      suffix="%" 
+      [(ngModel)]="discountPercentage"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Final Price" 
+      prefix="₹" 
+      [value]="finalPrice" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="You Save" 
+      prefix="₹" 
+      [value]="savings">
+    </app-result-card>
+
+    <app-result-card 
+      title="Total Price" 
+      prefix="₹" 
+      [value]="originalPrice">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

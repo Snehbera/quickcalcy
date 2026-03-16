@@ -1,0 +1,18 @@
+<div class="input-group">
+  <label *ngIf="label" [for]="id" class="input-label">{{ label }}</label>
+  <div class="input-wrapper">
+    <span *ngIf="prefix" class="input-prefix">{{ prefix }}</span>
+    <input 
+      [type]="type"
+      [id]="id"
+      [placeholder]="placeholder"
+      [value]="value"
+      (input)="setInputValue($any($event.target).value)"
+      (blur)="onTouch()"
+      class="input-control"
+      [class.has-prefix]="prefix"
+      [class.has-suffix]="suffix"
+    />
+    <span *ngIf="suffix" class="input-suffix">{{ suffix }}</span>
+  </div>
+</div>

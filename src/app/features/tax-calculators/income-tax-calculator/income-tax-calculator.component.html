@@ -1,0 +1,47 @@
+<app-calculator-page 
+  title="Income Tax Calculator" 
+  category="Tax" 
+  description="Estimate your annual income tax liability based on current slabs.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Annual Income" 
+      prefix="₹" 
+      [(ngModel)]="annualIncome"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Total Deductions (80C, etc.)" 
+      prefix="₹" 
+      [(ngModel)]="deductions"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Net Tax Payable" 
+      prefix="₹" 
+      [value]="totalTax" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Taxable Income" 
+      prefix="₹" 
+      [value]="taxableIncome">
+    </app-result-card>
+
+    <app-result-card 
+      title="Standard Deduction" 
+      prefix="₹" 
+      [value]="standardDeduction">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

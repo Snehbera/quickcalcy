@@ -1,0 +1,44 @@
+<app-calculator-page 
+  title="Net Worth Calculator" 
+  category="Savings" 
+  description="Determine your financial health by calculating your total assets minus liabilities.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <h4 class="text-primary font-semibold border-bottom pb-xs">Assets</h4>
+    <app-input-field label="Cash & Bank" prefix="₹" [(ngModel)]="cash" (ngModelChange)="calculate()"></app-input-field>
+    <app-input-field label="Investments" prefix="₹" [(ngModel)]="investments" (ngModelChange)="calculate()"></app-input-field>
+    <app-input-field label="Real Estate" prefix="₹" [(ngModel)]="realEstate" (ngModelChange)="calculate()"></app-input-field>
+    <app-input-field label="Other Assets" prefix="₹" [(ngModel)]="otherAssets" (ngModelChange)="calculate()"></app-input-field>
+
+    <h4 class="text-primary font-semibold border-bottom pb-xs mt-md">Liabilities</h4>
+    <app-input-field label="Loans" prefix="₹" [(ngModel)]="loans" (ngModelChange)="calculate()"></app-input-field>
+    <app-input-field label="Credit Card Debt" prefix="₹" [(ngModel)]="creditCard" (ngModelChange)="calculate()"></app-input-field>
+    <app-input-field label="Other Liabilities" prefix="₹" [(ngModel)]="otherLiabilities" (ngModelChange)="calculate()"></app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Net Worth" 
+      prefix="₹" 
+      [value]="netWorth" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Total Assets" 
+      prefix="₹" 
+      [value]="totalAssets">
+    </app-result-card>
+
+    <app-result-card 
+      title="Total Liabilities" 
+      prefix="₹" 
+      [value]="totalLiabilities">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

@@ -1,0 +1,59 @@
+<app-calculator-page 
+  title="EMI Calculator" 
+  description="Calculate your Equated Monthly Installment (EMI) for home loan, car loan or personal loan."
+  category="Loan">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Loan Amount" 
+      type="number" 
+      prefixIcon="₹" 
+      [(ngModel)]="principal">
+    </app-input-field>
+    
+    <app-input-field 
+      label="Interest Rate (p.a)" 
+      type="number" 
+      suffixText="%" 
+      [(ngModel)]="interestRate">
+    </app-input-field>
+    
+    <app-input-field 
+      label="Loan Tenure" 
+      type="number" 
+      suffixText="Years" 
+      [(ngModel)]="tenureYears">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 gap-md">
+    <app-result-card 
+      title="Monthly EMI" 
+      [value]="emi" 
+      prefix="₹" 
+      [highlight]="true">
+    </app-result-card>
+    
+    <div class="grid grid-cols-2 gap-md">
+      <app-result-card 
+        title="Principal Amount" 
+        [value]="principal" 
+        prefix="₹">
+      </app-result-card>
+      
+      <app-result-card 
+        title="Total Interest" 
+        [value]="totalInterest" 
+        prefix="₹">
+      </app-result-card>
+    </div>
+  </div>
+
+  <div calc-charts class="w-full flex justify-center">
+    <app-chart-display 
+      [data]="chartData" 
+      title="Payment Breakup">
+    </app-chart-display>
+  </div>
+
+</app-calculator-page>

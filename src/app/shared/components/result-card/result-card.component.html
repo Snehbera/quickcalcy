@@ -1,0 +1,9 @@
+<div class="result-card p-4 flex flex-col items-center justify-center text-center w-full" 
+     [class.highlight]="highlight">
+  <span class="result-title text-sm text-muted font-medium mb-2">{{ title }}</span>
+  <div class="result-value-wrapper flex items-baseline gap-1">
+    <span *ngIf="prefix" class="result-prefix text-xl text-primary font-bold">{{ prefix }}</span>
+    <span class="result-value text-3xl font-bold">{{ value | number:'1.0-2' }}</span>
+    <span *ngIf="suffix" class="result-suffix text-xl text-primary font-bold">{{ suffix }}</span>
+  </div>
+</div>

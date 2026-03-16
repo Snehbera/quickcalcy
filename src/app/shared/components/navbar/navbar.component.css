@@ -1,0 +1,115 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 10px;
+  background-color: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-container {
+  height: 40px;
+}
+
+.logo-text {
+  font-family: var(--font-family-heading);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -1px;
+}
+
+.logo-icon {
+  font-size: 32px;
+}
+
+.nav-link {
+  color: var(--color-text-main);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-main);
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-main);
+  transition: transform 0.3s, top 0.3s;
+}
+
+.hamburger::before { top: -6px; left: 0; }
+.hamburger::after { top: 6px; left: 0; }
+
+.hamburger.open { background-color: transparent; }
+.hamburger.open::before { top: 0; transform: rotate(45deg); }
+.hamburger.open::after { top: 0; transform: rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+  background-color: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-menu.open {
+  max-height: 300px;
+  padding: var(--spacing-md) 0;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu { display: none; }
+  .mobile-toggle { display: block; }
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast);
+  color: var(--color-text-main);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg-main);
+}

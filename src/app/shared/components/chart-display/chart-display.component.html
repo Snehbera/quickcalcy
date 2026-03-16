@@ -1,0 +1,17 @@
+<div class="chart-container flex flex-col items-center">
+  <h4 *ngIf="title" class="chart-title text-base font-semibold mb-4">{{ title }}</h4>
+  
+  <div class="pie-chart" [style.background]="getConicGradient()">
+    <div class="pie-hole"></div>
+  </div>
+
+  <div class="legend flex flex-col gap-sm w-full mt-6">
+    <div class="legend-item flex justify-between items-center text-sm" *ngFor="let item of data; let i = index">
+      <div class="flex items-center gap-xs">
+        <span class="color-dot" [style.backgroundColor]="item.color || ['#4F46E5', '#06B6D4', '#10B981', '#F59E0B'][i % 4]"></span>
+        <span class="text-muted">{{ item.name }}</span>
+      </div>
+      <span class="font-medium">₹{{ item.value | number:'1.0-0' }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<app-calculator-page 
+  title="GST Calculator" 
+  category="Tax" 
+  description="Calculate GST (Add/Remove) on any base amount.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Amount" 
+      prefix="₹" 
+      [(ngModel)]="amount"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="GST Rate" 
+      suffix="%" 
+      [(ngModel)]="gstRate"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <div class="flex gap-md mt-sm">
+      <label class="flex items-center gap-xs cursor-pointer">
+        <input type="radio" name="gstType" [value]="true" [(ngModel)]="isExclusive" (change)="calculate()">
+        <span>GST Exclusive (Add GST)</span>
+      </label>
+      <label class="flex items-center gap-xs cursor-pointer">
+        <input type="radio" name="gstType" [value]="false" [(ngModel)]="isExclusive" (change)="calculate()">
+        <span>GST Inclusive (Remove GST)</span>
+      </label>
+    </div>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Total Amount" 
+      prefix="₹" 
+      [value]="totalAmount" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Net Amount" 
+      prefix="₹" 
+      [value]="netAmount">
+    </app-result-card>
+
+    <app-result-card 
+      title="GST Amount" 
+      prefix="₹" 
+      [value]="gstAmount">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>

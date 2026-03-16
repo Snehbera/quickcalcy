@@ -1,0 +1,23 @@
+.calc-card {
+  height: 100%;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+}
+
+.calc-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background-color: rgba(99, 102, 241, 0.1); /* Primary-light with opacity */
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.calc-icon {
+  line-height: 1;
+}
+
+.calc-title {
+  color: var(--color-text-main);
+  transition: color var(--transition-fast);
+}

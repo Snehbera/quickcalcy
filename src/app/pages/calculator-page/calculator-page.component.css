@@ -1,0 +1,63 @@
+.calculator-page-wrapper {
+  min-height: calc(100vh - 60px - 200px); /* rough approximation to push footer down */
+  padding: 3rem 0;
+}
+
+/* Breadcrumb Pill Styles */
+.breadcrumb-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.breadcrumb-separator {
+  font-size: 10px;
+  opacity: 0.4;
+}
+
+.breadcrumb-pill a {
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-pill a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb-current {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.hover-text-primary:hover {
+  color: var(--color-primary);
+}
+
+.text-main {
+  color: var(--color-text-main);
+}
+
+.calc-header {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background-color: var(--color-bg-card);
+  margin-bottom: var(--spacing-xl);
+}
+
+.bg-primary-lighten {
+  background-color: rgba(79, 70, 229, 0.03); /* Very subtle Indigo tint */
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pb-sm {
+  padding-bottom: var(--spacing-sm);
+}

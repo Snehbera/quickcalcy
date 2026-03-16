@@ -1,0 +1,54 @@
+<app-calculator-page 
+  title="Inflation Calculator" 
+  category="Utility" 
+  description="Calculate the future value of money based on historical or expected inflation rates.">
+  
+  <div calc-inputs class="flex flex-col gap-md">
+    <app-input-field 
+      label="Current Amount" 
+      prefix="₹" 
+      [(ngModel)]="currentAmount"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Inflation Rate (p.a)" 
+      suffix="%" 
+      [(ngModel)]="inflationRate"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+
+    <app-input-field 
+      label="Years in Future" 
+      suffix="Yrs" 
+      [(ngModel)]="tenureYears"
+      (ngModelChange)="calculate()">
+    </app-input-field>
+  </div>
+
+  <div calc-results class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <app-result-card 
+      title="Future Value" 
+      prefix="₹" 
+      [value]="futureValue" 
+      [highlight]="true" 
+      class="md:col-span-2">
+    </app-result-card>
+
+    <app-result-card 
+      title="Purchasing Power Loss" 
+      prefix="₹" 
+      [value]="lossAmount">
+    </app-result-card>
+
+    <app-result-card 
+      title="Multiplier" 
+      suffix="x" 
+      [value]="multiplier">
+    </app-result-card>
+  </div>
+
+  <div calc-charts>
+    <app-chart-display [data]="chartData"></app-chart-display>
+  </div>
+</app-calculator-page>
