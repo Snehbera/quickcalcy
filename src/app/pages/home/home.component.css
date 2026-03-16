@@ -1,5 +1,11 @@
 .hero-section {
-  padding: 6rem 0;
+  padding: 3rem 0;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding: 6rem 0;
+  }
 }
 
 .hero-badge {
@@ -16,7 +22,7 @@
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 800;
   letter-spacing: -1px;
   line-height: 1.1;
@@ -70,28 +76,93 @@
   top: 100%;
   left: 0;
   right: 0;
-  margin-top: var(--spacing-sm);
-  max-height: 300px;
+  margin-top: 0.75rem;
+  max-height: 400px;
   overflow-y: auto;
-  z-index: 40;
-  padding: 0;
+  z-index: 100;
+  padding: 0.5rem;
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  animation: slideInDown 0.2s ease-out;
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Scrollbar */
+.search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
 }
 
 .search-result-item {
-  padding: var(--spacing-md);
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--color-border);
   text-decoration: none;
   color: var(--color-text-main);
-  transition: background-color var(--transition-fast);
+  transition: all var(--transition-fast);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-md);
+  margin-bottom: 2px;
 }
 
 .search-result-item:last-child {
   border-bottom: none;
+  margin-bottom: 0;
 }
 
 .search-result-item:hover {
-  background-color: var(--color-bg-main);
+  background-color: rgba(79, 70, 229, 0.05);
+  border-left-color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.search-result-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(79, 70, 229, 0.1);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.search-result-icon {
+  font-size: 1.25rem;
+}
+
+.search-result-title {
+  color: var(--color-text-main);
+  line-height: 1.2;
+}
+
+.search-result-category {
+  color: var(--color-primary);
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.search-result-arrow {
+  opacity: 0;
+  transition: all var(--transition-fast);
+  transform: translateX(-4px);
+}
+
+.search-result-item:hover .search-result-arrow {
+  opacity: 0.5;
+  transform: translateX(0);
 }
 
 .categories-section {

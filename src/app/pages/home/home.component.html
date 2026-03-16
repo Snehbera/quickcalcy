@@ -21,14 +21,16 @@
         />
       </div>
       
-      <!-- Search Dropdown -->
       <div *ngIf="searchQuery && searchResults.length > 0" class="search-results card">
-        <a *ngFor="let calc of searchResults" [routerLink]="calc.route" class="search-result-item flex items-center gap-sm">
-          <span>{{ calc.icon }}</span>
-          <div>
-            <div class="font-medium">{{ calc.title }}</div>
-            <div class="text-xs text-muted">{{ calc.category }}</div>
+        <a *ngFor="let calc of searchResults" [routerLink]="calc.route" class="search-result-item flex items-center gap-md">
+          <div class="search-result-icon-wrapper flex items-center justify-center">
+            <span class="search-result-icon">{{ calc.icon }}</span>
           </div>
+          <div class="search-result-content flex-1">
+            <div class="search-result-title font-semibold">{{ calc.title }}</div>
+            <div class="search-result-category text-xs">{{ calc.category }}</div>
+          </div>
+          <span class="search-result-arrow text-muted text-sm">❯</span>
         </a>
       </div>
       

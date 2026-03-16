@@ -11,5 +11,5 @@ import { FooterComponent } from './shared/components/footer/footer.component';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('calcyfy');
+  protected readonly title = signal('QuickCalcy');
 }

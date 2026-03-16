@@ -1,59 +1,75 @@
-# Calcyfy
+# QuickCalcy ✨
+> **Minimal. Beautiful. Precise.**
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+[![Angular](https://img.shields.io/badge/Angular-21.x-DD0031?style=for-the-badge&logo=angular)](https://angular.dev/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Status](https://img.shields.io/badge/Status-Production--Ready-blue?style=for-the-badge)](https://github.com/yourusername/quick-calcy)
 
-## Development server
+QuickCalcy is a premium financial calculator suite designed for clarity and speed. Whether you're planning a home loan, tracking an investment, or calculating tax, QuickCalcy provides a seamless, distraction-free experience.
 
-To start a local development server, run:
+![QuickCalcy Hero Showcase](screenshots/hero.png)
 
-```bash
-ng serve
+## 🚀 Key Features
+
+- **12+ Financial Tools**: Comprehensive coverage for Loans, Investments, Taxes, Savings, and Utilities.
+- **Smart Search**: Instant results with categorical hierarchy and smooth micro-interactions.
+- **Dynamic Theming**: Full support for both light and dark modes.
+- **Ultra-Responsive**: Mobile-first design with a functional hamburger menu and optimized layouts.
+- **Privacy First**: No server-side storage; all calculations happen locally in your browser.
+
+## 🏗️ Project Architecture
+
+QuickCalcy follows a modular, clean-architecture approach within the Angular ecosystem to ensure scalability and ease of maintenance.
+
+### 🧩 Core Concepts
+
+- **Centralized Logic**: All 12 calculator definitions, metadata, and routing logic are managed by the `CalculatorService`. This allows for a single, dynamic "Calculator Page" that reconfigures itself based on the active tool.
+- **Component Atomic Design**:
+  - **Shared Components**: High-level UI primitives (`InputField`, `ResultCard`, `Navbar`) used across all tools.
+  - **Feature Components**: Encapsulated mathematical logic for each specific calculator (e.g., `SipCalculatorComponent`).
+- **Reactive State**: Uses Angular's modern `Signal` API for theme state and lightweight data binding.
+
+### 📁 Directory Structure
+
+```yml
+src/
+├── app/
+│   ├── core/           # Singleton Services & Models
+│   ├── features/       # Individual Calculator Logic (Loan, Tax, etc.)
+│   ├── pages/          # High-level Views (Home, Generic Tool Page)
+│   ├── shared/         # Reusable UI Components & Tokens
+│   └── app.routes.ts   # Dynamic Parameterized Routing
+├── assets/             # Brand assets & icons
+└── styles.css          # Design System & Theming Tokens
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 🌓 Theming System
+Theming is implemented using CSS Variables and a top-level `.dark` class toggle. This ensures zero-latency theme switching and minimizes style duplication.
 
-## Code scaffolding
+---
+## 🛠️ Installation & Setup
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/quick-calcy.git
+   cd quick-calcy
+   ```
 
-```bash
-ng generate component component-name
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. **Start Development Server**
+   ```bash
+   npm start
+   ```
+   Visit `http://localhost:4200` to see the magic.
 
-```bash
-ng generate --help
-```
+4. **Production Build**
+   ```bash
+   npm run build
+   ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+Developed with precision by the QuickCalcy Team. 📈

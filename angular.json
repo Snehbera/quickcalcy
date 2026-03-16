@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "calcyfy": {
+    "quick-calcy": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -64,10 +64,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "calcyfy:build:production"
+              "buildTarget": "quick-calcy:build:production"
             },
             "development": {
-              "buildTarget": "calcyfy:build:development"
+              "buildTarget": "quick-calcy:build:development"
             }
           },
           "defaultConfiguration": "development"
