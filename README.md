@@ -2,7 +2,6 @@
 > **Minimal. Beautiful. Precise.**
 
 [![Angular](https://img.shields.io/badge/Angular-21.x-DD0031?style=for-the-badge&logo=angular)](https://angular.dev/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Production--Ready-blue?style=for-the-badge)](https://github.com/yourusername/quick-calcy)
 
 QuickCalcy is a premium financial calculator suite designed for clarity and speed. Whether you're planning a home loan, tracking an investment, or calculating tax, QuickCalcy provides a seamless, distraction-free experience.
@@ -64,12 +63,17 @@ Theming is implemented using CSS Variables and a top-level `.dark` class toggle.
    ```bash
    npm start
    ```
-   Visit `http://localhost:4200` to see the magic.
+   Open `http://localhost:4200` in your browser. The app will automatically reload if you change any of the source files.
 
 4. **Production Build**
    ```bash
    npm run build
    ```
-
+   The build artifacts will be stored in the dist/ directory.
 ---
-Developed with precision by the QuickCalcy Team. 📈
+
+## 👥 Contributing
+
+Found a bug, have a feature request, or want to add a new calculator? Feel free to open an issue or submit a Pull Request!
+
+If you find this tool helpful, a ⭐ on the repo is always appreciated.
